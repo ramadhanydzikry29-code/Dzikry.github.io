@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    min-height: 100vh;
+    color: #222;
+    /* Animated gradient background */
+    background: linear-gradient(120deg, #f5f7fa, #c3cfe2, #1abc9c, #2c3e50);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+@keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(44, 62, 80, 0.94);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 24px #2c3e5016;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: fadeDown 1s;
+}
+
+@keyframes fadeDown {
+    0% { transform: translateY(-40px); opacity: 0;}
+    100% { transform: translateY(0); opacity: 1;}
+}
+
+nav .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+nav .logo:hover {
+    color: #1abc9c;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.07rem;
+    transition: color 0.25s, border-bottom 0.25s;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #1abc9c;
+    border-bottom: 2px solid #1abc9c;
+}
+
+main {
+    max-width: 650px;
+    margin: 3.5rem auto 2rem auto;
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 4px 32px #0002;
+    border-radius: 22px;
+    padding: 2.5rem 2rem 2rem 2rem;
+    min-height: 460px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s;
+    animation: fadeCard 1.2s;
+}
+@keyframes fadeCard {
+    0% {opacity: 0; transform: scale(0.97);}
+    100% {opacity: 1; transform: scale(1);}
+}
+
+section {
+    display: none;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: opacity 0.6s, transform 0.7s;
+    min-height: 320px;
+}
+
+section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    animation: fadeInSection 0.9s;
+}
+
+@keyframes fadeInSection {
+    from { opacity: 0; transform: translateY(40px);}
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+.profile-pic {
+    display: block;
+    margin: 0 auto 1.7rem auto;
+    width: 145px;
+    height: 145px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px #2c3e5033, 0 0 0 7px #eafaf1;
+    border: 5px solid #fff;
+    background: #f3f3f3;
+    transition: transform 0.45s, box-shadow 0.4s;
+}
+.profile-pic:hover {
+    transform: scale(1.07) rotate(-3deg);
+    box-shadow: 0 8px 32px #1abc9c33, 0 0 0 11px #eafaf1;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+h1 {
+    font-size: 2.1rem;
+    margin-top: 0.4rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
+.desc {
+    text-align: center;
+    color: #444;
+    font-size: 1.15rem;
+    margin-top: 0.8rem;
+}
+
+ul {
+    margin: 1.1rem 0 0 1.5rem;
+    font-size: 1.08rem;
+    color: #334;
+    padding-left: 1.2rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    position: relative;
+    transition: color 0.3s;
+    list-style: none;
+}
+
+ul li:before {
+    content: "▹";
+    color: #1abc9c;
+    position: absolute;
+    left: -1.4em;
+    font-size: 1.15em;
+    top: 0.1em;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+    font-size: 0.98rem;
+    color: #888;
+    letter-spacing: 1px;
+    background: none;
+}
+
+@media (max-width: 700px) {
+    main { max-width: 98vw; padding: 1.3rem 0.6rem;}
+    nav { flex-direction: column; gap:0.5rem;}
+    .profile-pic { width: 100px; height: 100px; }
+}
